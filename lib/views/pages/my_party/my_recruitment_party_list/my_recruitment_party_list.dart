@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ggamf_front/views/pages/my_party/create_party/create_party_page.dart';
 import 'package:ggamf_front/views/pages/my_party/my_recruitment_party_list/components/my_recruitment_party_list_tab_bar.dart';
 import 'package:ggamf_front/views/pages/my_party/my_recruitment_party_list/components/my_recruitment_party_list_tab_view.dart';
 
@@ -11,7 +12,9 @@ class MyRecruitmentPartyList extends StatefulWidget {
 }
 
 class _MyRecruitmentPartyListState extends State<MyRecruitmentPartyList>
-    with SingleTickerProviderStateMixin<MyRecruitmentPartyList>, AutomaticKeepAliveClientMixin<MyRecruitmentPartyList> {
+    with
+        SingleTickerProviderStateMixin<MyRecruitmentPartyList>,
+        AutomaticKeepAliveClientMixin<MyRecruitmentPartyList> {
   final List<String> textIndex = [
     '나의 파티',
     '참가중인 방',
@@ -42,7 +45,10 @@ class _MyRecruitmentPartyListState extends State<MyRecruitmentPartyList>
         title: Text(textIndex[0]),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CreatePartyPage()));
+            },
             icon: Icon(
               FontAwesomeIcons.personCirclePlus,
               color: Colors.black,
@@ -55,7 +61,8 @@ class _MyRecruitmentPartyListState extends State<MyRecruitmentPartyList>
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            MyRecruitmentPartyListTabBar(tabController: _tabController, textIndex: textIndex),
+            MyRecruitmentPartyListTabBar(
+                tabController: _tabController, textIndex: textIndex),
             const SizedBox(height: 20),
             MyRecruitmentPartyListTabView(tabController: _tabController),
           ],

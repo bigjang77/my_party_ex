@@ -35,7 +35,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
               height: 200,
               child: InkWell(
                 onTap: () async {
-                  await showDialog(context: context, builder: (_) => _imageDialog());
+                  await showDialog(
+                      context: context, builder: (_) => _imageDialog());
                 },
                 child: Image.asset("assets/images/cart1.png"),
               ),
@@ -170,7 +171,7 @@ AppBar _appBar() {
     backgroundColor: Colors.white,
     title: Text(
       "내 프로필",
-      style: TextStyle(color: Colors.black, fontFamily: 'NanumSquare', fontSize: 25),
+      style: TextStyle(color: Colors.black, fontSize: 25),
     ),
     elevation: 0,
   );
